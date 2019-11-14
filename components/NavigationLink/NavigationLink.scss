@@ -1,0 +1,20 @@
+.NavigationLink {
+  position: relative;
+
+  // Styling the dot indicator above the nav items
+  &.selected {
+    &::before {
+      --nav-indicator-size: 10px;
+      content: '';
+      position: absolute;
+      width: var(--nav-indicator-size);
+      height: var(--nav-indicator-size);
+      display: block;
+      background-color: var(--green-primary);
+      border-radius: 50%;
+      top: calc(var(--c-04) * -1);
+      left: 50%;
+      margin-left: calc((var(--nav-indicator-size) / 2) * -1);
+    }
+  }
+}

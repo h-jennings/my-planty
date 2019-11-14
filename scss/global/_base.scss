@@ -1,0 +1,25 @@
+:root {
+  --nav-height: 152px;
+
+  @include for-laptop-down {
+    --nav-height: 112px;
+  }
+
+  --footer-height: 24px;
+}
+
+html {
+  background-color: var(--white);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main--container {
+  padding: 0 var(--l-05);
+  min-height: calc(100vh - (var(--nav-height) + var(--footer-height)));
+  flex-flow: column;
+}

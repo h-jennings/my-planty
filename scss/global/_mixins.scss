@@ -1,0 +1,25 @@
+// * Using these in individual components require an import statement
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin for-laptop-down {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin for-laptop-up {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}

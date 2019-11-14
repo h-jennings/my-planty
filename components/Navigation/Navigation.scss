@@ -1,0 +1,32 @@
+@import '../../scss/global/mixins';
+
+.Navigation--wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--l-04) var(--l-05);
+
+  @include for-laptop-down {
+    padding: var(--l-03) var(--l-05);
+  }
+
+  .logo--container {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .link--container {
+    a {
+      margin-right: var(--c-07);
+
+      @include for-laptop-down {
+        font-size: var(--txt-xsm);
+        margin-right: var(--c-06);
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}

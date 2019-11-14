@@ -1,0 +1,16 @@
+.txt--green {
+  color: var(--green-primary);
+
+  a {
+    color: var(--green-primary);
+  }
+}
+
+.txt--italic {
+  font-style: italic;
+}
+
+.flex--container {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,19 @@
+.Button {
+  text-decoration: none;
+  padding: var(--c-05) var(--c-09);
+  display: inline-block;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: var(--txt-base);
+  line-height: 1;
+
+  &.green {
+    background-color: var(--green-primary);
+    color: var(--white);
+  }
+
+  &.white {
+    background-color: var(--white);
+    color: var(--green-primary);
+  }
+}

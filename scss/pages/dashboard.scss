@@ -1,0 +1,36 @@
+.p-dashboard {
+  .content--wrapper {
+    padding-top: var(--l-05);
+  }
+
+  &-header {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 var(--l-01);
+    margin-bottom: var(--l-06);
+
+    time {
+      text-align: right;
+      font-weight: 700;
+    }
+  }
+
+  &-content {
+    display: flex;
+
+    .content--places {
+      padding: 0 var(--l-03) 0 var(--l-01);
+      flex: 1;
+    }
+
+    .content--places header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .content--schedule {
+      padding: 0 var(--l-01) 0 var(--l-03);
+      flex: 1;
+    }
+  }
+}
