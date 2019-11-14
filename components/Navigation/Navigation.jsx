@@ -11,7 +11,7 @@ function Navigation() {
         href="/"
       >
         <div className="logo--container" style={{ width: '142px', height: 'auto' }}>
-          <img src="/static/assets/images/Logotype.svg" alt="" />
+          <img src="/public/assets/images/Logotype.svg" alt="" />
         </div>
       </Link>
       <div className="link--container">
