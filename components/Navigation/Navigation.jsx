@@ -21,7 +21,7 @@ function Navigation() {
         <NavigationLink href="/about-us">
           plant help
         </NavigationLink>
-        <NavigationLink href="/products">
+        <NavigationLink href="/">
           contact us
         </NavigationLink>
       </div>
