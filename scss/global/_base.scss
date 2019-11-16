@@ -23,3 +23,7 @@ a {
   min-height: calc(100vh - (var(--nav-height) + var(--footer-height)));
   flex-flow: column;
 }
+
+:root {
+  --container-radius: 20px;
+}

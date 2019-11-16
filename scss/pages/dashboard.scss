@@ -23,14 +23,21 @@
       flex: 1;
     }
 
-    .content--places header {
+    .section-header {
       display: flex;
       justify-content: space-between;
+      margin-bottom: var(--l-05);
     }
 
     .content--schedule {
       padding: 0 var(--l-01) 0 var(--l-03);
       flex: 1;
+    }
+
+    .places-list--container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 20px;
     }
   }
 }

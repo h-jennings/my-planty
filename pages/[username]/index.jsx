@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { getCurrentMonth, getCurrentDate } from '../../utils/dateUtils';
+import { getCurrentMonth, getCurrentDate } from '../../lib/utils/dateUtils';
+import data from '../../data/user.json';
 import '../../scss/pages/dashboard.scss';
+import PlacesSquare from '../../components/PlacesSquare';
 
 
 const propTypes = {
@@ -16,7 +18,8 @@ const defaultProps = {
 };
 
 
-function dashboard({ month, date }) {
+function dashboard({ month, date, userData }) {
+  const { plantPlaces } = userData;
   return (
     <main className="p-dashboard main--container">
       <div className="content--wrapper">
@@ -34,7 +37,7 @@ function dashboard({ month, date }) {
         </header>
         <main className="p-dashboard-content">
           <section className="content--places">
-            <header>
+            <header className="section-header">
               <h2 className="lh--1-2">
                 Your Plant
                 <br />
@@ -46,11 +49,17 @@ function dashboard({ month, date }) {
                 </a>
               </Link>
             </header>
-            <ul>
-              <li>component</li>
-              <li>component</li>
-              <li>component</li>
-              <li>component</li>
+            <ul className="places-list--container">
+              {plantPlaces && plantPlaces.map((place) => (
+                <li
+                  key={place.name}
+                >
+                  <PlacesSquare
+                    place={place}
+                  />
+                </li>
+              ))}
+              <li>Button</li>
             </ul>
           </section>
           <section className="content--schedule">
@@ -71,8 +80,9 @@ function dashboard({ month, date }) {
 dashboard.getInitialProps = () => {
   const month = `${getCurrentMonth().toLowerCase()}.`;
   const date = getCurrentDate();
+  const userData = data.user;
 
-  return { month, date };
+  return { month, date, userData };
 };
 
 dashboard.propTypes = propTypes;
