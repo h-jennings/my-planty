@@ -1,13 +1,15 @@
-.btn--container {
-  a:nth-child(2) {
-    padding-left: var(--c-04);
+.p-home {
+  .btn--container {
+    a:nth-child(2) {
+      padding-left: var(--c-04);
+    }
   }
-}
 
-.content--wrapper {
-  padding-top: var(--l-05);
+  .content--wrapper {
+    padding-top: var(--l-05);
 
-  h1 {
-    margin-bottom: var(--c-07);
+    h1 {
+      margin-bottom: var(--c-07);
+    }
   }
 }

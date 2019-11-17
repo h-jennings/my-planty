@@ -5,12 +5,12 @@ import '../scss/pages/home.scss';
 
 const btnData = {
   type: 'green',
-  href: '/',
+  href: '/account/login',
 };
 
 function index() {
   return (
-    <main className="main--container">
+    <main className="p-home main--container">
       <div className="content--wrapper">
         <h1 className="lh--1-2">
           Welcome to myplanty

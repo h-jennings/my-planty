@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import './Button.scss';
 
@@ -22,12 +23,16 @@ function Button(props) {
   const { type, href } = data;
 
   return (
-    <a
+    <Link
       href={href}
-      className={`Button ${type}`}
     >
-      {children}
-    </a>
+      <a
+        className={`Button ${type}`}
+      >
+        {children}
+      </a>
+    </Link>
+
   );
 }
 
