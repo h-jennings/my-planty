@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
@@ -8,9 +8,11 @@ const propTypes = {
 };
 
 function Layout({ children }) {
+  const [isAuthed, setIsAuthed] = useState(false);
+
   return (
     <div className="Layout--wrapper">
-      <Navigation />
+      <Navigation isAuthed={isAuthed} />
       {children}
       <Footer />
     </div>

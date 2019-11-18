@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { getCurrentMonth, getCurrentDate } from '../../lib/utils/dateUtils';
@@ -43,7 +43,10 @@ function dashboard({ month, date, userData }) {
                 <br />
                 Places
               </h2>
-              <Link href="/">
+              <Link
+                href="/[username]/places"
+                as="jennings_hunter/places"
+              >
                 <a className="txt--green">
                   view all
                 </a>
