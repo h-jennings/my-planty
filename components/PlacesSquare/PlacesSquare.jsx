@@ -1,37 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './PlacesSquare.scss';
+import Link from 'next/link';
 
-function PlacesSquare({ place }) {
+
+function createImageArr(arr) {
+  const imgArr = arr.reduce(
+    (acc, current, index) => (index <= 2 ? [...acc, current.information.image] : acc),
+    [],
+  );
+  return imgArr;
+}
+
+function PlacesSquare({ place, username }) {
+  const [plantImgArr, setPlantImgArr] = useState([]);
+  const { plants } = place;
+  const { name } = place;
+
+  useEffect(() => {
+    setPlantImgArr(createImageArr(plants));
+  }, [place, plants]);
+
   return (
-    <div className="c-PlacesSquare">
-      <div className="c-PlacesSquare--container">
-        <header className="container-header">
-          <div className="container-header--wrapper">
-            <h1>{place.name}</h1>
+    <Link
+      href="[username]/places/[placeName]"
+      as={`${username}/places/${name}`}
+    >
+      <a>
+        <div className="c-PlacesSquare">
+          <div className="c-PlacesSquare--container">
+            <header className="square-container-header">
+              <div className="square-container-header--wrapper">
+                <h1>{name}</h1>
+              </div>
+            </header>
+            <ul className="img-gallery--container">
+              <li
+                className="gallery-item-1"
+                style={{
+                  backgroundImage: `${plantImgArr[0] ? `url('${plantImgArr[0]}')` : 'url(\'https://via.placeholder.com/300x460\')'}`,
+                }}
+              />
+              <li
+                className="gallery-item-2"
+                style={{
+                  backgroundImage: `${plantImgArr[1] ? `url('${plantImgArr[1]}')` : 'url(\'https://via.placeholder.com/300x460\')'}`,
+                }}
+              />
+              <li
+                className="gallery-item-3"
+                style={{
+                  backgroundImage: `${plantImgArr[2] ? `url('${plantImgArr[2]}')` : 'url(\'https://via.placeholder.com/300x460\')'}`,
+                }}
+              />
+            </ul>
           </div>
-        </header>
-        <ul className="img-gallery--container">
-          <li
-            className="gallery-item-1"
-            style={{
-              backgroundImage: `${place.plants[0] && place.plants[0].information.image !== null ? `url('${place.plants[0].information.image}')` : `url(${place.plants[0].information.placeholder})`}`,
-            }}
-          />
-          <li
-            className="gallery-item-2"
-            style={{
-              backgroundImage: `${place.plants[1] && place.plants[1].information.image !== null ? `url('${place.plants[1].information.image}')` : `url(${place.plants[1].information.placeholder})`}`,
-            }}
-          />
-          <li
-            className="gallery-item-3"
-            style={{
-              backgroundImage: `${place.plants[2] && place.plants[2].information.image !== null ? `url('${place.plants[2].information.image}')` : `url(${place.plants[2].information.placeholder})`}`,
-            }}
-          />
-        </ul>
-      </div>
-    </div>
+        </div>
+      </a>
+    </Link>
   );
 }
 

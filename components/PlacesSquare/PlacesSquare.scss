@@ -1,26 +1,6 @@
 .c-PlacesSquare {
   &--container {
     max-width: 280px;
-
-    .container-header {
-      overflow: hidden;
-      padding: 0 var(--c-03);
-    }
-
-    .container-header--wrapper {
-      border-top-left-radius: var(--container-radius);
-      border-top-right-radius: var(--container-radius);
-      background-color: #ffffff;
-      padding: var(--c-02) var(--c-05);
-    }
-
-    h1 {
-      font-size: var(--txt-base);
-      text-align: right;
-      line-height: 1;
-      font-weight: 400;
-      margin: 0;
-    }
   }
 
   .img-gallery--container {
@@ -29,9 +9,11 @@
     grid-template-columns: repeat(2, 1fr);
     overflow: hidden;
     border-radius: var(--container-radius);
+    background-color: var(--green-light);
+    max-height: 240px;
+    height: 20vw;
 
     li {
-      height: 120px;
       background-position: center;
       background-size: cover;
     }

@@ -6,7 +6,7 @@ function Footer() {
 
     <footer className="Footer--wrapper">
       <nav>
-        <div className="links--wrapper">
+        <div className="links--container">
           <ul className="col-left">
             <li className="title">About</li>
             <li>

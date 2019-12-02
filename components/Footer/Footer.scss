@@ -1,16 +1,27 @@
+@import '../../scss/global/mixins';
+
 .Footer--wrapper {
   margin-top: var(--l-07);
+
+  @include for-tablet-down {
+    margin-top: var(--l-05);
+  }
+
+  @include for-small-screen-down {
+    margin-top: var(--l-04);
+  }
 
   nav {
     padding: 0 var(--l-05);
   }
 
-  .links--wrapper {
-    padding: var(--l-03) var(--l-03);
+  .links--container {
     border-top: 2px solid var(--green-transparent);
+    padding: var(--l-03) 0;
     display: flex;
     justify-content: flex-end;
-
+    margin: 0 auto;
+    max-width: var(--main-container-size);
   }
 
   .col {
@@ -42,12 +53,35 @@
 
   .legal-info {
     background-color: var(--green-primary);
+    padding: var(--l-01) var(--l-05);
 
     .legal-info--content {
-      padding: var(--l-01) var(--l-05);
       color: var(--white);
       font-size: var(--txt-xsm);
       text-align: left;
+      @include main-container-styles;
+    }
+  }
+
+  @include for-tablet-down {
+    nav {
+      padding: 0 var(--l-02);
+    }
+
+    .legal-info {
+      padding: var(--l-01) var(--l-02);
+
+      .legal-info--content {
+        font-size: var(--txt-xxsm);
+      }
+    }
+
+    .links--container {
+      justify-content: flex-start;
+
+      li {
+        font-size: var(--txt-xxsm);
+      }
     }
   }
 }

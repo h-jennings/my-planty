@@ -1,12 +1,24 @@
 @import '../../scss/global/mixins';
 
-.Navigation--wrapper {
-  display: flex;
-  justify-content: space-between;
+.Navigation--container {
   padding: var(--l-04) var(--l-05);
 
   @include for-laptop-down {
-    padding: var(--l-03) var(--l-05);
+    padding: var(--l-04) var(--l-03);
+  }
+
+  @include for-phone-only {
+    padding: var(--l-01) var(--l-02);
+    border-bottom: 1px solid var(--green-light);
+  }
+
+
+  .Navigation--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: var(--main-container-size);
   }
 
   .logo--container {
@@ -27,6 +39,10 @@
       &:last-of-type {
         margin: 0;
       }
+    }
+
+    @include for-phone-only {
+      display: none;
     }
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Button from '../components/Button';
+import data from '../data/user';
 import '../scss/pages/home.scss';
 
 const btnData = {
@@ -8,7 +9,7 @@ const btnData = {
   href: '/account/login',
 };
 
-function index() {
+function home({ username }) {
   return (
     <main className="p-home main--container">
       <div className="content--wrapper">
@@ -25,7 +26,7 @@ function index() {
           </Button>
           <Link
             href="/[username]"
-            as="jennings_hunter"
+            as={`/${username}`}
           >
             <a className="txt--green txt--italic txt-xsm">
               Link to dashboard
@@ -37,4 +38,9 @@ function index() {
   );
 }
 
-export default index;
+home.getInitialProps = () => {
+  const { username } = data[0];
+  return { username };
+};
+
+export default home;

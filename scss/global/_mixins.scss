@@ -6,20 +6,37 @@
   }
 }
 
+@mixin for-small-screen-down {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
 @mixin for-tablet-down {
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-medium-screen-down {
+  @media (max-width: 900px) {
     @content;
   }
 }
 
 @mixin for-laptop-down {
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1075px) {
     @content;
   }
 }
 
 @mixin for-laptop-up {
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1075px) {
     @content;
   }
+}
+
+@mixin main-container-styles {
+  max-width: var(--main-container-size);
+  margin: 0 auto;
 }

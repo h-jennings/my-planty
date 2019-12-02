@@ -19,11 +19,14 @@ a {
 }
 
 .main--container {
-  padding: 0 var(--l-05);
   min-height: calc(100vh - (var(--nav-height) + var(--footer-height)));
-  flex-flow: column;
-}
+  padding: 0 var(--l-05);
 
-:root {
-  --container-radius: 20px;
+  @include for-laptop-down {
+    padding: 0 var(--l-03);
+  }
+
+  @include for-medium-screen-down {
+    padding: 0 var(--l-01);
+  }
 }

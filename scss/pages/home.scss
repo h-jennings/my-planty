@@ -1,3 +1,5 @@
+@import '../global/mixins';
+
 .p-home {
   .btn--container {
     a:nth-child(2) {
@@ -7,6 +9,7 @@
 
   .content--wrapper {
     padding-top: var(--l-05);
+    @include main-container-styles;
 
     h1 {
       margin-bottom: var(--c-07);

@@ -5,6 +5,7 @@ import { getCurrentMonth, getCurrentDate } from '../../lib/utils/dateUtils';
 import data from '../../data/user.json';
 import '../../scss/pages/dashboard.scss';
 import PlacesSquare from '../../components/PlacesSquare';
+import PlantScheduleManager from '../../components/PlantScheduleManager';
 
 
 const propTypes = {
@@ -19,7 +20,7 @@ const defaultProps = {
 
 
 function dashboard({ month, date, userData }) {
-  const { plantPlaces } = userData;
+  const { plantPlaces, username } = userData;
   return (
     <main className="p-dashboard main--container">
       <div className="content--wrapper">
@@ -31,7 +32,8 @@ function dashboard({ month, date, userData }) {
           </h1>
           <time className="txt-super lh--1">
             {month}
-            <br />
+            <br className="m-hide" />
+            {' '}
             {date}
           </time>
         </header>
@@ -40,12 +42,12 @@ function dashboard({ month, date, userData }) {
             <header className="section-header">
               <h2 className="lh--1-2">
                 Your Plant
-                <br />
+                <br className="m-hide" />
                 Places
               </h2>
               <Link
                 href="/[username]/places"
-                as="jennings_hunter/places"
+                as={`${username}/places`}
               >
                 <a className="txt--green">
                   view all
@@ -59,20 +61,50 @@ function dashboard({ month, date, userData }) {
                 >
                   <PlacesSquare
                     place={place}
+                    username={username}
                   />
                 </li>
               ))}
-              <li>Button</li>
+              <li>
+                <button className="add-place-btn" type="button">
+                  <header className="square-container-header">
+                    <div className="square-container-header--wrapper">
+                      <h1>Add a place</h1>
+                    </div>
+                  </header>
+                  <div className="btn-icon--container">
+                    <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                      <g fill="none" fillRule="evenodd">
+                        <g fill="#F2F4F3">
+                          <path d="M32.5 0h15v80h-15z" />
+                          <path d="M0 47.5v-15h80v15z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </button>
+              </li>
             </ul>
           </section>
           <section className="content--schedule">
-            <header>
+            <header className="section-header">
               <h2 className="lh--1-2">
                 Today&rsquo;s Watering
                 <br />
                 Schedule
               </h2>
             </header>
+            <ul className="schedule-list">
+              <li className="schedule-list-item">
+                <PlantScheduleManager />
+              </li>
+              <li className="schedule-list-item">
+                <PlantScheduleManager />
+              </li>
+              <li className="schedule-list-item">
+                <PlantScheduleManager />
+              </li>
+            </ul>
           </section>
         </main>
       </div>
@@ -80,10 +112,11 @@ function dashboard({ month, date, userData }) {
   );
 }
 
-dashboard.getInitialProps = () => {
+dashboard.getInitialProps = ({ query }) => {
+  const userData = data.find((user) => user.username === query.username);
   const month = `${getCurrentMonth().toLowerCase()}.`;
   const date = getCurrentDate();
-  const userData = data.user;
+
 
   return { month, date, userData };
 };

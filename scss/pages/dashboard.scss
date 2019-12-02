@@ -1,6 +1,13 @@
+@import '../global/mixins';
+
 .p-dashboard {
   .content--wrapper {
     padding-top: var(--l-05);
+    @include main-container-styles;
+
+    @include for-phone-only {
+      padding-top: var(--l-03);
+    }
   }
 
   &-header {
@@ -12,7 +19,33 @@
     time {
       text-align: right;
       font-weight: 700;
+
+      @include for-laptop-down {
+        font-size: var(--txt-xxl);
+      }
     }
+
+    @include for-medium-screen-down {
+      margin-bottom: var(--l-04);
+
+      h1 {
+        font-size: var(--txt-md);
+      }
+    }
+
+    @include for-phone-only {
+      flex-flow: column nowrap;
+      flex-direction: column-reverse;
+
+      time {
+        font-size: var(--txt-base);
+        color: var(--slate);
+        opacity: 0.4;
+        text-align: left;
+        margin-bottom: var(--c-04);
+      }
+    }
+
   }
 
   &-content {
@@ -21,12 +54,34 @@
     .content--places {
       padding: 0 var(--l-03) 0 var(--l-01);
       flex: 1;
+
+      @include for-small-screen-down {
+        display: none;
+      }
     }
 
     .section-header {
       display: flex;
       justify-content: space-between;
       margin-bottom: var(--l-05);
+
+      @include for-medium-screen-down {
+        h2 {
+          font-size: var(--txt-sm);
+        }
+      }
+
+      @include for-small-screen-down {
+        h2 {
+          font-size: var(--txt-md);
+        }
+      }
+
+      @include for-phone-only {
+        h2 {
+          font-size: var(--txt-sm);
+        }
+      }
     }
 
     .content--schedule {
@@ -36,8 +91,74 @@
 
     .places-list--container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(min-content, 280px));
       gap: 30px 20px;
+    }
+
+    @include for-medium-screen-down {
+
+      .content--places,
+      .content--schedule {
+        padding: 0 var(--l-01) 0 var(--l-01);
+      }
+    }
+  }
+
+  .add-place-btn {
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    max-width: 280px;
+    display: flex;
+    align-items: stretch;
+    flex-flow: column nowrap;
+
+    .btn-icon--container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--container-radius);
+      background-color: var(--green-light);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .square-container-header {
+    overflow: hidden;
+    padding: 0 var(--c-03);
+  }
+
+  .square-container-header--wrapper {
+    border-top-left-radius: var(--container-radius);
+    border-top-right-radius: var(--container-radius);
+    background-color: #ffffff;
+    padding: var(--c-02) var(--c-05);
+
+    h1 {
+      font-size: var(--txt-base);
+      text-align: right;
+      line-height: 1;
+      font-weight: 400;
+      margin: 0;
+
+      @include for-laptop-down {
+        font-size: var(--txt-xsm);
+      }
+    }
+  }
+
+  .schedule-list-item {
+    margin-bottom: var(--l-05);
+
+    @include for-phone-only {
+      margin-bottom: var(--l-04);
     }
   }
 }

@@ -14,3 +14,9 @@
   display: flex;
   align-items: center;
 }
+
+@include for-phone-only {
+  .m-hide {
+    display: none;
+  }
+}

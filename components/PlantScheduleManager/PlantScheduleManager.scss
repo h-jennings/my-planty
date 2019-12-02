@@ -1,0 +1,85 @@
+@import '../../scss/global/mixins';
+
+.c-PlantScheduleManager {
+  border-radius: var(--container-radius);
+  background-color: #ffffff;
+  position: relative;
+  padding: var(--c-06);
+  display: flex;
+
+  @include for-medium-screen-down {
+    padding: var(--c-05);
+  }
+
+  @include for-tablet-down {
+    padding: var(--c-06);
+  }
+
+  &-content {
+    flex: 1;
+
+    h3 {
+      font-size: var(--txt-xsm);
+      color: var(--green-light);
+      font-style: italic;
+      margin-bottom: var(--c-03);
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: var(--txt-base);
+      line-height: 1;
+      margin-bottom: var(--c-04);
+    }
+
+    p {
+      margin-bottom: var(--c-04);
+
+      @include for-laptop-down {
+        font-size: var(--txt-xsm);
+      }
+    }
+
+    .recommendation {
+      margin-bottom: 0;
+    }
+  }
+
+
+  &-thumbnail--wrapper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+
+    @include for-laptop-up {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include for-medium-screen-down {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include for-tablet-down {
+      width: 100px;
+      height: 100px;
+    }
+
+    @include for-phone-only {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      right: var(--c-06);
+    }
+  }
+
+  &-thumbnail--container {
+    transform: translateY(calc(var(--l-05) * -1 + 10px));
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    border-radius: var(--container-radius);
+    overflow: hidden;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
@@ -12,6 +13,9 @@ function Layout({ children }) {
 
   return (
     <div className="Layout--wrapper">
+      <Head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+      </Head>
       <Navigation isAuthed={isAuthed} />
       {children}
       <Footer />
