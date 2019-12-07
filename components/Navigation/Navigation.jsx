@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import './Navigation.scss';
 import NavigationLink from '../NavigationLink';
 
 const propTypes = {

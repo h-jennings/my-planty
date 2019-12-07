@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './PlacesSquare.scss';
 import Link from 'next/link';
 
 

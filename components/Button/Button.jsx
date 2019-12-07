@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import './Button.scss';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

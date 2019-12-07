@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import './NavigationLink.scss';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
