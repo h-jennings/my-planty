@@ -1,0 +1,30 @@
+type User {
+  firstName: String!
+  lastName: String!
+  email: String!
+  username: String!
+  avatar: String
+  plantPlaces: [PlantPlace!]
+}
+
+type PlantPlace {
+  owner: User!
+  placeName: String!
+  image: String
+  plants: [Plant!]
+}
+
+type Plant {
+  owner: User!
+  plantName: String!
+  plantPlace: PlantPlace!
+  imageUrl: String
+  type: String!
+  description: String!
+}
+
+type Query {
+  allUsers: [User!]
+  allPlants: [Plant!]
+  allPlantPlaces: [PlantPlace!]
+}

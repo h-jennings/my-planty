@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MP_FAUNADB_SECRET_KEY": "@mp_faunadb_secret_key",
+    "MP_FAUNADB_API_ENDPOINT": "@mp_faunadb_api_endpoint"
+  }
+}

@@ -19,7 +19,9 @@ const defaultProps = {
 };
 
 
-function dashboard({ month, date, userData }) {
+function dashboard({
+  month, date, userData,
+}) {
   const { plantPlaces, username } = userData;
   return (
     <main className="p-dashboard main--container">
@@ -116,9 +118,9 @@ dashboard.getInitialProps = ({ query }) => {
   const userData = data.find((user) => user.username === query.username);
   const month = `${getCurrentMonth().toLowerCase()}.`;
   const date = getCurrentDate();
-
-
-  return { month, date, userData };
+  return {
+    month, date, userData,
+  };
 };
 
 dashboard.propTypes = propTypes;

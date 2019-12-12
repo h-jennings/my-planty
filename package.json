@@ -6,7 +6,7 @@
   "dependencies": {
     "@svgr/webpack": "^4.3.3",
     "@zeit/next-sass": "^1.0.1",
-    "faunadb": "^2.9.3",
+    "dotenv": "^8.2.0",
     "framer-motion": "^1.6.7",
     "moment": "^2.24.0",
     "next": "^9.1.3",
