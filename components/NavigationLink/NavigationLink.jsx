@@ -7,13 +7,14 @@ const propTypes = {
   href: PropTypes.string.isRequired,
 };
 
-function NavigationLink({ children, href }) {
-  const router = useRouter();
-  const isSelected = router.pathname === href ? 'selected' : '';
+function NavigationLink({ children, href, as }) {
+  const { push, pathname } = useRouter();
+  const isSelected = pathname === href ? 'selected' : '';
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push(href);
+    if (as) return push(href, as);
+    push(href);
   };
   return (
     <a

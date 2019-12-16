@@ -115,6 +115,7 @@ function dashboard({
 }
 
 dashboard.getInitialProps = ({ query }) => {
+  console.log(query);
   const userData = data.find((user) => user.username === query.username);
   const month = `${getCurrentMonth().toLowerCase()}.`;
   const date = getCurrentDate();
