@@ -5,16 +5,22 @@ import PropTypes from 'prop-types';
 const propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
+  as: PropTypes.string,
 };
 
-function NavigationLink({ children, href, as }) {
+const defaultProps = {
+  as: '',
+};
+
+
+function NavigationLink({ children, href, as = href }) {
   const { push, pathname } = useRouter();
   const isSelected = pathname === href ? 'selected' : '';
 
   const handleClick = (e) => {
     e.preventDefault();
     if (as) return push(href, as);
-    push(href);
+    return push(href);
   };
   return (
     <a
@@ -29,5 +35,6 @@ function NavigationLink({ children, href, as }) {
 
 
 NavigationLink.propTypes = propTypes;
+NavigationLink.defaultProps = defaultProps;
 
 export default NavigationLink;
